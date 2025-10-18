@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --tiborn-red: #C0392B;
+    --tiborn-black: #0B0D0F;
+    --tiborn-dark-1: #1D232B;
+    --tiborn-dark-2: #2A323C;
+    --tiborn-gray-light: #E5E7EB;
+    --tiborn-gray-lighter: #F5F7FA;
+  }
+
+  * {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', 'Segoe UI', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter Tight', 'Segoe UI', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply py-20 md:py-32;
+  }
+
+  .container-width {
+    @apply max-w-[1320px] mx-auto px-6 md:px-8;
+  }
+
+  .card-shadow {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .card-shadow-hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .transition-smooth {
+    transition: all 250ms cubic-bezier(0.2, 0.6, 0.2, 1);
+  }
+
+  .fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .tiborn-logo {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+}
