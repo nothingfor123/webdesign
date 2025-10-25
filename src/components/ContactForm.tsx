@@ -45,9 +45,8 @@ export default function ContactForm() {
                     Head Office
                   </h4>
                   <p className="text-gray-600 text-sm leading-relaxed">
-                    Rotterdam Business Center<br />
-                    Wilhelminaplein 1<br />
-                    3072 DE Rotterdam, Netherlands
+                    Plaza, Baris St., Lefkose Ave.<br />
+                    16110 Bursa, Turkiye
                   </p>
                 </div>
               </div>
@@ -76,8 +75,8 @@ export default function ContactForm() {
                     Phone Number
                   </h4>
                   <p className="text-gray-600 text-sm">
-                    +31 10 123 4567<br />
-                    +31 10 123 4568
+                    +90 543 897 6683<br />
+                    +90 543 897 5928
                   </p>
                 </div>
               </div>

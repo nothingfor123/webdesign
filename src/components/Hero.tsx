@@ -34,7 +34,7 @@ export default function Hero() {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden" style={{ marginTop: '80px' }}>
+    <section className="relative h-screen w-full overflow-hidden" style={{ marginTop: '72px' }}>
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -55,20 +55,17 @@ export default function Hero() {
 
       <div className="relative h-full flex items-center justify-center">
         <div className="container-width text-center text-white">
-          <h1 className="text-5xl md:text-7xl font-semibold mb-6 fade-in leading-tight">
-            {slides[currentSlide].title}
-          </h1>
-          <p className="text-xl md:text-2xl mb-12 text-white/90 max-w-3xl mx-auto fade-in">
+          <div className="inline-block mb-6">
+            <h1 className="text-5xl md:text-7xl font-black mb-6 fade-in leading-tight">
+              <span className="inline-block bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent drop-shadow-2xl">
+                {slides[currentSlide].title}
+              </span>
+            </h1>
+            <div className="h-1 w-32 mx-auto bg-gradient-to-r from-transparent via-[#C0392B] to-transparent rounded-full animate-pulse"></div>
+          </div>
+          <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto fade-in font-light leading-relaxed">
             {slides[currentSlide].subtitle}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in">
-            <button className="bg-[#C0392B] text-white px-8 py-4 rounded-[14px] font-semibold uppercase tracking-wider hover:bg-[#A93226] transition-smooth hover:shadow-xl hover:shadow-[#C0392B]/30">
-              Explore Services
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-[14px] font-semibold uppercase tracking-wider hover:bg-white hover:text-[#0B0D0F] transition-smooth">
-              Request a Quote
-            </button>
-          </div>
         </div>
       </div>
 

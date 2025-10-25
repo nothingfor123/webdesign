@@ -56,15 +56,15 @@ export default function CaseStudies() {
           </p>
         </div>
 
-        <div className="relative">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="relative bg-white/50 rounded-[14px] p-8 md:p-12 shadow-2xl border border-gray-200 hover:shadow-3xl hover:border-[#C0392B]/20 transition-all duration-700 ease-in-out" style={{ scrollBehavior: 'smooth' }}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 scroll-smooth">
             {visibleStudies.map((study, index) => (
               <div
                 key={index}
-                className="bg-white rounded-[14px] overflow-hidden card-shadow hover:card-shadow-hover hover:-translate-y-2 transition-smooth"
+                className="bg-white rounded-[14px] overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-[#C0392B]/20 hover:-translate-y-3 hover:scale-105 transition-all duration-500 ease-in-out"
               >
                 <div
-                  className="h-48 bg-cover bg-center"
+                  className="h-48 bg-cover bg-center transition-all duration-500 ease-in-out hover:scale-110"
                   style={{
                     backgroundImage: `url(${study.image})`,
                     filter: 'brightness(0.85)'
@@ -83,10 +83,10 @@ export default function CaseStudies() {
                   </p>
                   <a
                     href="#"
-                    className="inline-flex items-center gap-2 text-[#C0392B] font-medium text-sm uppercase tracking-wider hover:gap-3 transition-smooth"
+                    className="inline-flex items-center gap-2 text-[#C0392B] font-medium text-sm uppercase tracking-wider hover:gap-4 transition-all duration-500 ease-in-out hover:translate-x-1"
                   >
                     Read More
-                    <ArrowRight size={16} />
+                    <ArrowRight size={16} className="transition-transform duration-500 ease-in-out" />
                   </a>
                 </div>
               </div>
@@ -95,27 +95,27 @@ export default function CaseStudies() {
 
           <button
             onClick={prev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 bg-white rounded-full p-3 card-shadow hover:card-shadow-hover transition-smooth"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 bg-white rounded-full p-3 shadow-lg hover:shadow-2xl hover:shadow-[#C0392B]/30 hover:bg-[#C0392B] hover:scale-110 transition-all duration-500 ease-in-out group"
             aria-label="Previous case study"
           >
-            <ChevronLeft className="text-[#0B0D0F]" />
+            <ChevronLeft className="text-[#0B0D0F] group-hover:text-white transition-colors duration-500" />
           </button>
           <button
             onClick={next}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 bg-white rounded-full p-3 card-shadow hover:card-shadow-hover transition-smooth"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 bg-white rounded-full p-3 shadow-lg hover:shadow-2xl hover:shadow-[#C0392B]/30 hover:bg-[#C0392B] hover:scale-110 transition-all duration-500 ease-in-out group"
             aria-label="Next case study"
           >
-            <ChevronRight className="text-[#0B0D0F]" />
+            <ChevronRight className="text-[#0B0D0F] group-hover:text-white transition-colors duration-500" />
           </button>
         </div>
 
-        <div className="flex justify-center gap-2 mt-8">
+        <div className="flex justify-center gap-3 mt-8">
           {caseStudies.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`w-2 h-2 rounded-full transition-smooth ${
-                index === currentIndex ? 'bg-[#C0392B] w-8' : 'bg-gray-300'
+              className={`h-2 rounded-full transition-all duration-500 ease-in-out hover:scale-125 ${
+                index === currentIndex ? 'bg-[#C0392B] w-10 shadow-lg shadow-[#C0392B]/30' : 'bg-gray-300 w-2 hover:bg-gray-400'
               }`}
               aria-label={`Go to case study ${index + 1}`}
             />

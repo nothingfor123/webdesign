@@ -45,18 +45,21 @@ export default function IndustriesServed() {
             {industries.map((industry, index) => (
               <div
                 key={index}
-                className="bg-[#F5F7FA] p-8 rounded-[14px] border-2 border-transparent hover:border-[#C0392B] transition-smooth group"
+                className="relative bg-gradient-to-br from-white to-[#F5F7FA] p-8 rounded-2xl border border-gray-200/50 hover:border-[#C0392B]/50 transition-all duration-500 group shadow-sm hover:shadow-xl hover:shadow-[#C0392B]/10 hover:-translate-y-2"
               >
-                <industry.icon
-                  className="w-12 h-12 text-[#C0392B] mb-6 group-hover:scale-110 transition-smooth"
-                  strokeWidth={1.5}
-                />
-                <h3 className="text-lg font-semibold text-[#0B0D0F] mb-3">
-                  {industry.title}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {industry.description}
-                </p>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#C0392B]/0 via-[#C0392B]/0 to-[#C0392B]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+                <div className="relative z-10">
+                  <industry.icon
+                    className="w-12 h-12 text-[#C0392B] mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500"
+                    strokeWidth={1.5}
+                  />
+                  <h3 className="text-lg font-bold text-[#0B0D0F] mb-3 group-hover:text-[#C0392B] transition-colors duration-300">
+                    {industry.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {industry.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

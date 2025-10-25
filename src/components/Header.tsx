@@ -14,36 +14,85 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const menuItems = ['Homepage', 'Corporate', 'Services', 'Quality & HSE', 'Contact'];
+  const smoothScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    
+    // Handle Homepage - scroll to top
+    let targetPosition: number;
+    if (targetId === 'homepage') {
+      targetPosition = 0;
+    } else {
+      const targetElement = document.getElementById(targetId);
+      if (!targetElement) return;
+      
+      const headerOffset = 72; // Height of the fixed header
+      targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+    }
+
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    const duration = 1800; // Even more gentle - 1.8 seconds for ultra-smooth scroll
+    let startTime: number | null = null;
+
+    // Ultra-smooth easing function (ease-in-out-quart for very gentle motion)
+    const easeInOutQuart = (t: number): number => {
+      return t < 0.5 
+        ? 8 * t * t * t * t 
+        : 1 - Math.pow(-2 * t + 2, 4) / 2;
+    };
+
+    const animation = (currentTime: number) => {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+      const ease = easeInOutQuart(progress);
+      
+      window.scrollTo(0, startPosition + distance * ease);
+      
+      if (progress < 1) {
+        requestAnimationFrame(animation);
+      }
+    };
+
+    requestAnimationFrame(animation);
+    setMobileMenuOpen(false);
+  };
+
+  const menuItems = ['Homepage', 'Corporate', 'Services', 'Contact'];
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${
-          scrolled ? 'bg-[#0B0D0F]/85 backdrop-blur-md' : 'bg-transparent'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out ${
+          scrolled 
+            ? 'bg-[#0B0D0F]/60 backdrop-blur-2xl backdrop-saturate-150 shadow-lg shadow-black/10 border-b border-white/10' 
+            : 'bg-[#0B0D0F]/80 backdrop-blur-xl backdrop-saturate-180'
         }`}
-        style={{ height: '80px' }}
+        style={{ 
+          height: '72px',
+          WebkitBackdropFilter: scrolled ? 'blur(40px) saturate(150%)' : 'blur(24px) saturate(180%)',
+          backdropFilter: scrolled ? 'blur(40px) saturate(150%)' : 'blur(24px) saturate(180%)'
+        }}
       >
         <div className="container-width h-full flex items-center justify-between">
-          <div className="tiborn-logo text-2xl tracking-wide">
-            <span className="text-white">TIB</span>
-            <span className="text-[#C0392B]">O</span>
-            <span className="text-white">RN</span>
+          <div className="tiborn-logo text-2xl tracking-wide group cursor-pointer">
+            <span className="text-white group-hover:text-white/90 transition-colors">TIB</span>
+            <span className="text-[#C0392B] group-hover:text-[#E74C3C] transition-colors">O</span>
+            <span className="text-white group-hover:text-white/90 transition-colors">RN</span>
           </div>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-10">
             {menuItems.map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                className="text-white/90 hover:text-white text-sm font-medium transition-smooth"
+                onClick={(e) => smoothScrollTo(e, item.toLowerCase().replace(/\s+/g, '-'))}
+                className="relative text-white/80 hover:text-white text-sm font-medium tracking-wide transition-all duration-300 group"
               >
-                {item}
+                <span className="relative z-10">{item}</span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#C0392B] to-[#E74C3C] group-hover:w-full transition-all duration-300 rounded-full"></span>
               </a>
             ))}
-            <button className="bg-[#C0392B] text-white px-6 py-2.5 rounded-[14px] text-sm font-semibold uppercase tracking-wider hover:bg-[#A93226] transition-smooth hover:shadow-lg hover:shadow-[#C0392B]/20">
-              Request a Quote
-            </button>
           </nav>
 
           <button
@@ -57,21 +106,18 @@ export default function Header() {
       </header>
 
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-[#0B0D0F]/95 backdrop-blur-md md:hidden">
+        <div className="fixed inset-0 z-40 bg-[#0B0D0F]/50 backdrop-blur-2xl backdrop-saturate-150 md:hidden" style={{ WebkitBackdropFilter: 'blur(40px) saturate(150%)', backdropFilter: 'blur(40px) saturate(150%)' }}>
           <div className="flex flex-col items-center justify-center h-full gap-8">
             {menuItems.map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                className="text-white text-xl font-medium hover:text-[#C0392B] transition-smooth"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => smoothScrollTo(e, item.toLowerCase().replace(/\s+/g, '-'))}
+                className="text-white text-2xl font-medium hover:text-[#C0392B] transition-all duration-300 hover:scale-110"
               >
                 {item}
               </a>
             ))}
-            <button className="bg-[#C0392B] text-white px-8 py-3 rounded-[14px] text-sm font-semibold uppercase tracking-wider hover:bg-[#A93226] transition-smooth">
-              Request a Quote
-            </button>
           </div>
         </div>
       )}
