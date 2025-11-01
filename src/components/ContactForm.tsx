@@ -60,8 +60,7 @@ export default function ContactForm() {
                     Email Address
                   </h4>
                   <p className="text-gray-600 text-sm">
-                    info@tiborn.com<br />
-                    sales@tiborn.com
+                    info@tiborn.com.tr<br />
                   </p>
                 </div>
               </div>
@@ -90,9 +89,7 @@ export default function ContactForm() {
                     Working Hours
                   </h4>
                   <p className="text-gray-600 text-sm">
-                    Monday - Friday: 08:00 - 18:00 CET<br />
-                    Saturday: 09:00 - 13:00 CET<br />
-                    Sunday: Closed
+                    Monday–Friday: 09:00 – 17:00 (UTC +3, Türkiye Standard Time)<br />
                   </p>
                 </div>
               </div>
@@ -173,31 +170,6 @@ export default function ContactForm() {
                       placeholder="Tell us about your requirements..."
                     />
                   </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-[#0B0D0F] mb-2">
-                      Attach Files (PDF, DWG, XLS)
-                    </label>
-                    <div className="relative">
-                      <input
-                        type="file"
-                        accept=".pdf,.dwg,.xls,.xlsx"
-                        onChange={handleFileChange}
-                        className="hidden"
-                        id="file-upload"
-                      />
-                      <label
-                        htmlFor="file-upload"
-                        className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-[14px] border-2 border-dashed border-gray-300 hover:border-[#C0392B] cursor-pointer transition-smooth"
-                      >
-                        <Upload size={20} className="text-gray-400" />
-                        <span className="text-gray-600 text-sm">
-                          {fileName || 'Click to upload files'}
-                        </span>
-                      </label>
-                    </div>
-                  </div>
-
                   <button
                     type="submit"
                     className="w-full bg-[#C0392B] text-white py-4 rounded-[14px] font-semibold uppercase tracking-wider hover:bg-[#A93226] transition-smooth hover:shadow-xl hover:shadow-[#C0392B]/20"

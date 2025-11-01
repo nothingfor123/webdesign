@@ -4,7 +4,6 @@ import Hero from './components/Hero';
 import ScrollProgress from './components/ScrollProgress';
 
 // Lazy load components below the fold for better initial load performance
-const KPIStrip = lazy(() => import('./components/KPIStrip'));
 const ProductsServices = lazy(() => import('./components/ProductsServices'));
 const IndustriesServed = lazy(() => import('./components/IndustriesServed'));
 const GlobalPresence = lazy(() => import('./components/GlobalPresence'));
@@ -27,7 +26,6 @@ function App() {
       <Header />
       <Hero />
       <Suspense fallback={<LoadingFallback />}>
-        <KPIStrip />
         <ProductsServices />
         <IndustriesServed />
         <GlobalPresence />

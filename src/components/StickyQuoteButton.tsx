@@ -44,17 +44,5 @@ export default function StickyQuoteButton() {
     requestAnimationFrame(animation);
   };
 
-  if (!isVisible) return null;
-
-  return (
-    <button
-      onClick={() => smoothScrollTo('contact')}
-      className="fixed bottom-8 right-8 bg-gradient-to-r from-[#C0392B] to-[#E74C3C] text-white p-5 rounded-full shadow-2xl hover:shadow-[#C0392B]/50 transition-all duration-500 z-40 group hover:scale-110 animate-bounce-slow"
-      aria-label="Request a quote"
-      style={{ animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}
-    >
-      <div className="absolute inset-0 bg-white/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-      <MessageSquare size={24} className="relative z-10 group-hover:rotate-12 transition-transform duration-500" strokeWidth={2.5} />
-    </button>
-  );
+  return null;
 }
