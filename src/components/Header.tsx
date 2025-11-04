@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import tibornLogo from '../assets/tiborn.png';
 import { Menu, X } from 'lucide-react';
 
 export default function Header() {
@@ -75,11 +76,20 @@ export default function Header() {
         }}
       >
         <div className="container-width h-full flex items-center justify-between">
-          <div className="tiborn-logo text-2xl tracking-wide group cursor-pointer">
-            <span className="text-white group-hover:text-white/90 transition-colors">TIB</span>
-            <span className="text-[#C0392B] group-hover:text-[#E74C3C] transition-colors">O</span>
-            <span className="text-white group-hover:text-white/90 transition-colors">RN</span>
-          </div>
+          <a
+            href="#homepage"
+            onClick={(e) => smoothScrollTo(e, 'homepage')}
+            className="block select-none"
+            aria-label="TIBORN - Homepage"
+          >
+            <img
+              src={tibornLogo}
+              alt="TIBORN"
+              className="h-8 md:h-10 w-auto pointer-events-none"
+              decoding="async"
+              draggable={false}
+            />
+          </a>
 
           <nav className="hidden md:flex items-center gap-10">
             {menuItems.map((item) => (
