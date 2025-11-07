@@ -58,9 +58,9 @@ export default function Hero() {
           <div className="inline-block mb-6">
             <h1 className="text-5xl md:text-7xl font-black mb-6 fade-in leading-tight">
               <span className="inline-block bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent drop-shadow-2xl">
-                {slides[currentSlide].title}
+            {slides[currentSlide].title}
               </span>
-            </h1>
+          </h1>
             <div className="h-1 w-32 mx-auto bg-gradient-to-r from-transparent via-[#C0392B] to-transparent rounded-full animate-pulse"></div>
           </div>
           <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto fade-in font-light leading-relaxed">

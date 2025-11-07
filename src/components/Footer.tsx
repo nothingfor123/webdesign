@@ -16,8 +16,8 @@ export default function Footer() {
             draggable={false}
           />
           <p className="text-white/60 text-xs md:text-sm tracking-wide">
-            © 2025 TIBORN. All rights reserved.
-          </p>
+              © 2025 TIBORN. All rights reserved.
+            </p>
         </div>
       </div>
     </footer>

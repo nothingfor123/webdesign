@@ -45,8 +45,8 @@ export default function ContactForm() {
                     Head Office
                   </h4>
                   <p className="text-gray-600 text-sm leading-relaxed">
-                    Plaza, Baris St., Lefkose Ave.<br />
-                    16110 Bursa, Turkiye
+                    Baris Street, Lefkose Avenue<br />
+                    16110 Nilüfer, Bursa, Türkiye
                   </p>
                 </div>
               </div>

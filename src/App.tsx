@@ -6,7 +6,6 @@ import ScrollProgress from './components/ScrollProgress';
 // Lazy load components below the fold for better initial load performance
 const ProductsServices = lazy(() => import('./components/ProductsServices'));
 const IndustriesServed = lazy(() => import('./components/IndustriesServed'));
-const GlobalPresence = lazy(() => import('./components/GlobalPresence'));
 // const CaseStudies = lazy(() => import('./components/CaseStudies'));
 const ContactForm = lazy(() => import('./components/ContactForm'));
 const Footer = lazy(() => import('./components/Footer'));
@@ -28,7 +27,6 @@ function App() {
       <Suspense fallback={<LoadingFallback />}>
         <ProductsServices />
         <IndustriesServed />
-        <GlobalPresence />
         {/* <CaseStudies /> */}
         <ContactForm />
         <Footer />

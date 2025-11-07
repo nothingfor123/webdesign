@@ -58,11 +58,11 @@ export default function ProductsServices() {
                   <service.icon className="w-8 h-8 text-[#C0392B]" strokeWidth={2} />
                 </div>
                 <h3 className="text-xl font-bold text-[#0B0D0F] mb-3 group-hover:text-[#C0392B] transition-colors duration-300">
-                  {service.title}
-                </h3>
+                {service.title}
+              </h3>
                 <p className="text-gray-600 leading-relaxed text-sm">
-                  {service.description}
-                </p>
+                {service.description}
+              </p>
               </div>
             </div>
           ))}

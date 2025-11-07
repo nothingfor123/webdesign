@@ -1,4 +1,18 @@
+import type { CSSProperties } from 'react';
 import { Drill, Factory, Zap, Waves } from 'lucide-react';
+import accentureLogo from '../assets/logo/accenture.png';
+import adnocLogo from '../assets/logo/adnoc.png';
+import bestPickLogo from '../assets/logo/best-pick.png';
+import cruxocmLogo from '../assets/logo/cruxocm.png';
+import enercapLogo from '../assets/logo/enercap.png';
+import energyFutureLogo from '../assets/logo/energy_future.jpg';
+import eniLogo from '../assets/logo/eni.png';
+import honeywellLogo from '../assets/logo/Honeywell.png';
+import kentLogo from '../assets/logo/kent.jpg';
+import mcdermottLogo from '../assets/logo/McDermott.jpg';
+import menaTerminalsLogo from '../assets/logo/mena-terminals.jpeg';
+import petronasLogo from '../assets/logo/petronas.png';
+import visionLogo from '../assets/logo/vision.webp';
 
 const industries = [
   {
@@ -23,8 +37,27 @@ const industries = [
   }
 ];
 
-const partners = [
-  'Shell', 'BP', 'TotalEnergies', 'Chevron', 'ExxonMobil', 'Saudi Aramco'
+const partnerLogos = [
+  { name: 'Honeywell', src: honeywellLogo },
+  { name: 'Accenture', src: accentureLogo },
+  { name: 'ADNOC', src: adnocLogo },
+  { name: 'Best Pick', src: bestPickLogo },
+  { name: 'CruxOCM', src: cruxocmLogo },
+  { name: 'Enercap', src: enercapLogo },
+  { name: 'Energy Future', src: energyFutureLogo },
+  { name: 'ENI', src: eniLogo },
+  { name: 'Kent', src: kentLogo },
+  { name: 'McDermott', src: mcdermottLogo },
+  { name: 'MENA Terminals', src: menaTerminalsLogo },
+  { name: 'Petronas', src: petronasLogo },
+  { name: 'Vision', src: visionLogo }
+];
+
+type MarqueeTrackStyle = CSSProperties & { '--marquee-duration'?: string };
+
+const marqueeRows = [
+  partnerLogos.filter((_, index) => index % 2 === 0),
+  partnerLogos.filter((_, index) => index % 2 !== 0)
 ];
 
 export default function IndustriesServed() {
@@ -66,23 +99,89 @@ export default function IndustriesServed() {
         </div>
       </section>
 
-      <section className="py-16 bg-[#1D232B]">
-        <div className="container-width">
-          <h3 className="text-2xl font-semibold text-white text-center mb-4">
-            Global Partners
-          </h3>
-          <p className="text-white/70 text-center mb-12 max-w-2xl mx-auto">
-            Collaborating with industry leaders to deliver exceptional results
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-12">
-            {partners.map((partner, index) => (
-              <div
-                key={index}
-                className="text-white/60 text-xl font-semibold hover:text-white transition-smooth"
-              >
-                {partner}
+      <section id="corporate" className="relative py-20 bg-[#05080C] overflow-hidden">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-50"
+          style={{
+            background:
+              'radial-gradient(circle at top, rgba(192,57,43,0.35), transparent 50%), radial-gradient(circle at bottom, rgba(13,17,23,0.9), rgba(5,8,12,1))'
+          }}
+        />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+        <div className="container-width relative">
+          <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] items-start">
+            <div>
+              <p className="text-xs tracking-[0.4em] text-white/50 uppercase mb-4">
+                Global Partners
+              </p>
+              <h3 className="text-3xl md:text-4xl font-semibold text-white mb-6 leading-tight">
+                Modern alliances with world-class operators and technology firms
+              </h3>
+              <p className="text-white/70 text-lg leading-relaxed max-w-2xl">
+                We collaborate with future-focused companies across energy, petrochemical and
+                industrial verticals to keep critical infrastructure online and optimized.
+              </p>
+              <div className="flex flex-wrap gap-3 mt-10">
+                {['Critical spares supply', 'Lifecycle support', 'Integrated engineering', 'On-site expertise'].map(
+                  (highlight) => (
+                    <span
+                      key={highlight}
+                      className="rounded-full border border-white/15 px-4 py-2 text-sm text-white/70 backdrop-blur-sm"
+                    >
+                      {highlight}
+                    </span>
+                  )
+                )}
               </div>
-            ))}
+            </div>
+
+            <div className="rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-8 shadow-2xl shadow-black/30">
+              <div className="grid grid-cols-2 gap-6 text-white">
+                {[
+                  { value: '40+', label: 'Strategic alliances' },
+                  { value: '28', label: 'Countries supported' },
+                  { value: '120+', label: 'Mission-critical assets' },
+                  { value: '24/7', label: 'Partner response' }
+                ].map((stat) => (
+                  <div key={stat.label}>
+                    <p className="text-3xl font-semibold">{stat.value}</p>
+                    <p className="text-sm text-white/60 mt-1">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-8 text-white/70 text-sm leading-relaxed">
+                Dedicated partner success managers and engineering teams coordinate every deliverable—from
+                procurement and logistics to onsite commissioning—so our partners can stay focused on performance.
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-14 space-y-6">
+            {marqueeRows.map((row, rowIndex) => {
+              const trackStyle: MarqueeTrackStyle = {
+                '--marquee-duration': rowIndex === 0 ? '26s' : '32s'
+              };
+
+              return (
+                <div key={rowIndex} className="partner-marquee-wrapper">
+                  <div className="partner-marquee-gradient partner-marquee-gradient--left" />
+                  <div className="partner-marquee-gradient partner-marquee-gradient--right" />
+                  <div
+                    className={`partner-track ${rowIndex === 1 ? 'partner-track--reverse' : ''}`}
+                    style={trackStyle}
+                  >
+                    {[...row, ...row].map((logo, index) => (
+                      <div key={`${logo.name}-${index}`} className="partner-logo-tile">
+                        <div className="partner-logo">
+                          <img src={logo.src} alt={`${logo.name} logo`} />
+                        </div>
+                        <span>{logo.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

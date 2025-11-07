@@ -8,7 +8,7 @@ const office = {
   country: 'Türkiye',
   address: 'Konak, Lefkoşe Cd. No:52, 16110 Nilüfer/Bursa',
   position: { left: '50%', top: '50%' },
-  email: 'info@tiborn.com',
+  email: 'info@tiborn.com.tr',
   phone: '+90 224 123 4567'
 };
 
@@ -16,14 +16,14 @@ export default function GlobalPresence() {
   const [activeOffice, setActiveOffice] = useState<boolean>(false);
 
   return (
-    <section id="corporate" className="section-padding bg-[#0B0D0F]">
+    <section id="headquarter" className="section-padding bg-[#0B0D0F]">
       <div className="container-width">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-semibold text-white mb-4">
-            Global Presence
+            Our Headquarter
           </h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            Supplying globally with local expertise
+          Our central office serves as the hub of Tiborn's global network.
           </p>
         </div>
 
@@ -37,7 +37,6 @@ export default function GlobalPresence() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Konak, Nilüfer/Bursa Office Location"
-              importance="low"
             />
 
             <div
@@ -74,54 +73,29 @@ export default function GlobalPresence() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 scroll-smooth">
-            <div className="bg-[#2A323C] p-8 rounded-[14px] hover:bg-[#353D47] transition-all duration-500 ease-in-out max-w-md w-full hover:scale-105 hover:shadow-xl hover:shadow-[#C0392B]/20">
-              <h4 className="font-semibold text-white mb-2 text-lg">
-                {office.city}, {office.country}
-              </h4>
-              <p className="text-white/60 text-sm mb-4">{office.address}</p>
-              <div className="space-y-3">
-                <div className="flex items-center gap-3 text-sm text-white/70">
-                  <Mail size={18} className="text-[#C0392B]" />
-                  <span>{office.email}</span>
+          <div className="mt-12 flex justify-center">
+            <div className="relative max-w-xl w-full rounded-2xl p-[1px] bg-gradient-to-br from-[#C0392B]/40 via-white/10 to-transparent">
+              <div className="rounded-2xl bg-[#1F2832]/80 backdrop-blur-md border border-white/10 p-8">
+                <div className="mb-4 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-[#C0392B]/15 flex items-center justify-center">
+                    <MapPin className="text-[#C0392B]" size={18} />
+                  </div>
+                  <h4 className="text-white text-lg font-semibold">
+                    Bursa, Türkiye
+                  </h4>
                 </div>
-                <div className="flex items-center gap-3 text-sm text-white/70">
-                  <Phone size={18} className="text-[#C0392B]" />
-                  <span>{office.phone}</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-[#2A323C] p-8 rounded-[14px] hover:bg-[#353D47] transition-all duration-500 ease-in-out max-w-md w-full hover:scale-105 hover:shadow-xl hover:shadow-[#C0392B]/20">
-              <h4 className="font-semibold text-white mb-2 text-lg">
-                Serkan Duman
-              </h4>
-              <p className="text-white/60 text-sm mb-4">Market Intelligence Analyst</p>
-              <div className="space-y-3">
-                <div className="flex items-center gap-3 text-sm text-white/70">
-                  <Mail size={18} className="text-[#C0392B]" />
-                  <span>serkan.duman@tiborn.com.tr</span>
-                </div>
-                <div className="flex items-center gap-3 text-sm text-white/70">
-                  <Phone size={18} className="text-[#C0392B]" />
-                  <span>+90 543 897 6683</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-[#2A323C] p-8 rounded-[14px] hover:bg-[#353D47] transition-all duration-500 ease-in-out max-w-md w-full hover:scale-105 hover:shadow-xl hover:shadow-[#C0392B]/20">
-              <h4 className="font-semibold text-white mb-2 text-lg">
-                Aylin Demir
-              </h4>
-              <p className="text-white/60 text-sm mb-4">Supplier Due Diligence Specialist</p>
-              <div className="space-y-3">
-                <div className="flex items-center gap-3 text-sm text-white/70">
-                  <Mail size={18} className="text-[#C0392B]" />
-                  <span>aylin.demir@tiborn.com.tr</span>
-                </div>
-                <div className="flex items-center gap-3 text-sm text-white/70">
-                  <Phone size={18} className="text-[#C0392B]" />
-                  <span>+90 543 897 5928</span>
+                <p className="text-white/70 text-sm mb-5 leading-relaxed">
+                  Konak, Lefkoşe Cd. No:52, 16110 Nilüfer/Bursa
+                </p>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3 text-sm text-white/80">
+                    <Mail size={18} className="text-[#C0392B]" />
+                    <span>info@tiborn.com.tr</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-white/80">
+                    <Phone size={18} className="text-[#C0392B]" />
+                    <span>+90 224 123 4567</span>
+                  </div>
                 </div>
               </div>
             </div>
